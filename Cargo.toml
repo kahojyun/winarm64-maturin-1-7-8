@@ -9,4 +9,4 @@ name = "winarm64_maturin_1_7_8"
 crate-type = ["cdylib"]
 
 [dependencies]
-pyo3 = { version = "0.23.3", features = ["abi3-py39", "generate-import-lib"] }
+pyo3 = { version = "0.23.3", features = ["generate-import-lib"] }
