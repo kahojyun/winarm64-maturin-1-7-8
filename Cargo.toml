@@ -1,0 +1,12 @@
+[package]
+name = "winarm64-maturin-1-7-8"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "winarm64_maturin_1_7_8"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.23.3", features = ["abi3-py39", "generate-import-lib"] }
