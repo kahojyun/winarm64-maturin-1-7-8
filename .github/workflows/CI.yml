@@ -34,12 +34,10 @@ jobs:
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
-          maturin-version: "1.7.6"
+          maturin-version: "1.7.8"
           target: ${{ matrix.platform.target }}
-          args: --release --out dist --find-interpreter
+          args: --release --out dist --find-interpreter --zig
           sccache: "true"
-        env:
-          PYO3_PRINT_CONFIG: "1"
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
