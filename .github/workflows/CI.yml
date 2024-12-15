@@ -27,8 +27,16 @@ jobs:
         platform:
           - runner: windows-latest
             target: x64
+            args: --release --out dist
           - runner: windows-latest
             target: aarch64
+            args: --release --out dist
+          - runner: windows-latest
+            target: x64
+            args: --release --out dist -i 3.13t
+          - runner: windows-latest
+            target: aarch64
+            args: --release --out dist -i 3.13t
     steps:
       - uses: actions/checkout@v4
       - name: Build wheels
@@ -36,7 +44,7 @@ jobs:
         with:
           maturin-version: "1.7.8"
           target: ${{ matrix.platform.target }}
-          args: --release --out dist --find-interpreter
+          args: ${{ matrix.platform.args }}
           sccache: "true"
         env:
           PYO3_CROSS: 1
