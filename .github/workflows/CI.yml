@@ -39,7 +39,7 @@ jobs:
           args: --release --out dist --find-interpreter
           sccache: "true"
         env:
-          MATURIN_USE_XWIN: 1
+          PYO3_CROSS: 1
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
