@@ -28,15 +28,19 @@ jobs:
           - runner: windows-latest
             target: x64
             args: --release --out dist
+            label: x64-abi3
           - runner: windows-latest
             target: aarch64
             args: --release --out dist
+            label: arm64-abi3
           - runner: windows-latest
             target: x64
             args: --release --out dist -i 3.13t
+            label: x64-3.13t
           - runner: windows-latest
             target: aarch64
             args: --release --out dist -i 3.13t
+            label: arm64-3.13t
     steps:
       - uses: actions/checkout@v4
       - name: Build wheels
@@ -51,5 +55,5 @@ jobs:
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
-          name: wheels-windows-${{ matrix.platform.target }}
+          name: wheels-windows-${{ matrix.platform.label }}
           path: dist
